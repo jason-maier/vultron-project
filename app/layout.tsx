@@ -20,7 +20,7 @@ export default function RootLayout({
         <div className="flex min-h-screen max-h-screen flex-col">
           <header>
             <nav className="bg-white border-gray-400 px-4 lg:px-6 py-3 border-b">
-              <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+              <div className="flex flex-wrap mx-auto max-w-screen-xl">
                 <div className="flex items-center">
                   <img src="./Vultron.svg" alt="Logo" className="h-8 w-8" />
                   <h1 className="text-lg font-semibold ml-2">VultGPT 1.0</h1>

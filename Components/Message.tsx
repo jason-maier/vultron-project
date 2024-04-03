@@ -7,7 +7,7 @@ interface MessageProps {
 
 const Message = ({ content, role }: MessageProps) => {
   return (
-    <div className="flex flex-grow max-w-full">
+    <div className="flex max-w-full">
       <div className="my-4 flex flex-row items-start">
         {role === "user" ? (
           <Image src="./person.svg" width={30} height={30} alt="Person Icon" />
