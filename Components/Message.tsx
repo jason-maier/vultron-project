@@ -1,6 +1,13 @@
 import Image from "next/image";
 
-const Message = ({ message }) => {
+interface MessageProps {
+  message: {
+    role: string;
+    content: string;
+  };
+}
+
+const Message = ({ message }: MessageProps) => {
   return (
     <div className="flex flex-grow max-w-full">
       <div className="my-4 flex flex-row items-start">
