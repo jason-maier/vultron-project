@@ -7,8 +7,8 @@ describe("MessageTextInput", () => {
     render(
       <MessageTextInput
         input="Hello, VultGPT!"
-        onChange={() => {}}
-        onClick={() => {}}
+        onInputChange={() => {}}
+        onSubmit={() => {}}
       />
     );
     expect(
@@ -20,8 +20,8 @@ describe("MessageTextInput", () => {
     render(
       <MessageTextInput
         input="Hello, VultGPT!"
-        onChange={() => {}}
-        onClick={() => {}}
+        onInputChange={() => {}}
+        onSubmit={() => {}}
       />
     );
     expect(screen.getByRole("button")).toBeInTheDocument();
@@ -29,19 +29,19 @@ describe("MessageTextInput", () => {
 
   it("disables the button when the input is empty", () => {
     render(
-      <MessageTextInput input="" onChange={() => {}} onClick={() => {}} />
+      <MessageTextInput input="" onInputChange={() => {}} onSubmit={() => {}} />
     );
     expect(screen.getByRole("button")).toBeDisabled();
   });
 
   it("fires the correct actions", () => {
-    const mockOnChange = jest.fn();
-    const mockOnClick = jest.fn((e) => e.preventDefault());
+    const mockonInputChange = jest.fn();
+    const mockonSubmit = jest.fn((e) => e.preventDefault());
     render(
       <MessageTextInput
         input="Hello, VultGPT!"
-        onChange={mockOnChange}
-        onClick={mockOnClick}
+        onInputChange={mockonInputChange}
+        onSubmit={mockonSubmit}
       />
     );
     const input = screen.getByPlaceholderText("Message VultGPT...");
@@ -50,7 +50,7 @@ describe("MessageTextInput", () => {
       fireEvent.change(input, { target: { value: "H" } });
       button.click();
     });
-    expect(mockOnChange).toHaveBeenCalledTimes(1);
-    expect(mockOnClick).toHaveBeenCalledTimes(1);
+    expect(mockonInputChange).toHaveBeenCalledTimes(1);
+    expect(mockonSubmit).toHaveBeenCalledTimes(1);
   });
 });

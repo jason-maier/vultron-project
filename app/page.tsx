@@ -33,8 +33,8 @@ export default function Home() {
       </div>
       <MessageTextInput
         input={input}
-        onChange={handleInputChange}
-        onClick={handleSubmit}
+        onInputChange={handleInputChange}
+        onSubmit={handleSubmit}
       />
     </div>
   );
