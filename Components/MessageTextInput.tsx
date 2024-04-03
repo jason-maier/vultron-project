@@ -1,7 +1,7 @@
 import React from "react";
 
 interface MessageTextInputProps {
-  input: any;
+  input: string;
   onChange: any;
   onClick: any;
 }
@@ -32,6 +32,7 @@ const MessageTextInput = ({
         />
         <button
           type="submit"
+          disabled={!input.length}
           onClick={onClick}
           className={`absolute px-2 py-1 text-sm font-medium text-center inline-flex items-center text-white rounded-lg message-submit-button ${
             input.length > 0 ? "bg-slate-800" : "bg-slate-300"
@@ -46,9 +47,9 @@ const MessageTextInput = ({
           >
             <path
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="1"
               d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"
             />
           </svg>
