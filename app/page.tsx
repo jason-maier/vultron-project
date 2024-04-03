@@ -4,13 +4,14 @@ import Image from "next/image";
 import Message from "@/Components/Message";
 import MessageTextInput from "@/Components/MessageTextInput";
 import { useChat } from "ai/react";
+import ScrollToBottom from "react-scroll-to-bottom";
 
 export default function Home() {
   const { messages, input, handleInputChange, handleSubmit } = useChat();
 
   return (
     <div className="flex min-h-screen max-h-screen flex-col items-center justify-between p-24">
-      <div className="flex flex-col  w-3/5 h-full overflow-auto whitespace-pre-wrap">
+      <ScrollToBottom className="flex flex-col w-3/5 h-full overflow-auto whitespace-pre-wrap">
         {messages.map((message) => (
           <Message message={message} key={message.id} />
         ))}
@@ -27,7 +28,7 @@ export default function Home() {
             </h2>
           </div>
         )}
-      </div>
+      </ScrollToBottom>
       <MessageTextInput
         input={input}
         onChange={handleInputChange}
