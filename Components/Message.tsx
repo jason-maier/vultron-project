@@ -1,17 +1,15 @@
 import Image from "next/image";
 
 interface MessageProps {
-  message: {
-    role: string;
-    content: string;
-  };
+  content: string;
+  role: string;
 }
 
-const Message = ({ message }: MessageProps) => {
+const Message = ({ content, role }: MessageProps) => {
   return (
     <div className="flex flex-grow max-w-full">
       <div className="my-4 flex flex-row items-start">
-        {message.role === "user" ? (
+        {role === "user" ? (
           <Image src="./person.svg" width={30} height={30} alt="Person Icon" />
         ) : (
           <Image
@@ -22,10 +20,8 @@ const Message = ({ message }: MessageProps) => {
           />
         )}
         <div className="ml-4 flex flex-col">
-          <div className="font-bold">
-            {message.role === "user" ? "You" : "VultGPT"}
-          </div>
-          <div>{message.content}</div>
+          <div className="font-bold">{role === "user" ? "You" : "VultGPT"}</div>
+          {content}
         </div>
       </div>
     </div>

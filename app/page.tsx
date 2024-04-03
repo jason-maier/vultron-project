@@ -12,8 +12,8 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-between p-24 vultgpt-container">
       <div className="flex flex-col w-3/5 h-full overflow-auto whitespace-pre-wrap">
-        {messages.map((message) => (
-          <Message message={message} key={message.id} />
+        {messages.map(({ content, role, id }) => (
+          <Message key={id} content={content} role={role} />
         ))}
 
         {!messages.length && (
