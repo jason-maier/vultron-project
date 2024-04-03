@@ -1,5 +1,5 @@
 import MessageTextInput from "@/Components/MessageTextInput";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 describe("MessageTextInput", () => {
@@ -46,9 +46,11 @@ describe("MessageTextInput", () => {
     );
     const input = screen.getByPlaceholderText("Message VultGPT...");
     const button = screen.getByRole("button");
-    fireEvent.change(input, { target: { value: "H" } });
+    act(() => {
+      fireEvent.change(input, { target: { value: "H" } });
+      button.click();
+    });
     expect(mockOnChange).toHaveBeenCalledTimes(1);
-    button.click();
     expect(mockOnClick).toHaveBeenCalledTimes(1);
   });
 });
