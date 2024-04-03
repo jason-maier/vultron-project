@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 interface MessageTextInputProps {
   input: any;
@@ -11,9 +11,11 @@ const MessageTextInput = ({
   onChange,
   onClick,
 }: MessageTextInputProps) => {
-  const [currentMessage, setCurrentMessage] = useState<string>("");
   return (
-    <form className="w-3/5" onSubmit={onClick}>
+    <form
+      className="w-3/5 focus:ring-green-400 focus:ring-4 focus:outline-none"
+      onSubmit={onClick}
+    >
       <label
         htmlFor="message"
         className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
@@ -28,28 +30,29 @@ const MessageTextInput = ({
           value={input}
           onChange={onChange}
         />
-        <div className="absolute inset-y-0 end-0 flex items-center pe-3 pointer-events-none">
-          <button
-            type="button"
-            className="px-3 py-2 text-sm font-medium text-center inline-flex items-center text-white bg-slate-900 rounded-lg focus:ring-4 focus:outline-none focus:ring-blue-300"
+        <button
+          type="submit"
+          onClick={onClick}
+          className={`absolute px-2 py-1 text-sm font-medium text-center inline-flex items-center text-white rounded-lg focus:ring-4 focus:outline-none focus:ring-green-400 message-submit-button ${
+            input.length > 0 ? "bg-slate-800" : "bg-slate-300"
+          }`}
+        >
+          <svg
+            className="w-6 h-6 text-white dark:text-white"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 18 16"
           >
-            <svg
-              className="w-6 h-6 text-white dark:text-white"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 18 16"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"
-              />
-            </svg>
-          </button>
-        </div>
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"
+            />
+          </svg>
+        </button>
       </div>
     </form>
   );
