@@ -12,10 +12,7 @@ const MessageTextInput = ({
   onSubmit,
 }: MessageTextInputProps) => {
   return (
-    <form
-      className="w-3/5 focus:ring-green-400 focus:ring-4 focus:outline-none"
-      onSubmit={onSubmit}
-    >
+    <form className="w-3/5 focus:ring-4 focus:outline-none" onSubmit={onSubmit}>
       <label
         htmlFor="message"
         className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
