@@ -7,3 +7,13 @@
     text-wrap: balance;
   }
 }
+
+html,
+body {
+  min-height: 100%;
+  width: 100%;
+}
+
+.vultgpt-container {
+  min-height: 94vh;
+}

@@ -10,7 +10,7 @@ export default function Home() {
   const { messages, input, handleInputChange, handleSubmit } = useChat();
 
   return (
-    <div className="flex min-h-screen max-h-screen flex-col items-center justify-between p-24">
+    <div className="flex flex-col items-center justify-between p-24 vultgpt-container">
       <div className="flex flex-col w-3/5 h-full overflow-auto whitespace-pre-wrap">
         {messages.map((message) => (
           <Message message={message} key={message.id} />
